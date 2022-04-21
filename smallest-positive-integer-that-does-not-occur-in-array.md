@@ -17,7 +17,7 @@ Write an efficient algorithm for the following assumptions:
 N is an integer within the range [1..100,000];
 each element of array A is an integer within the range [−1,000,000..1,000,000].
 
-# Solution
+# Solution 1
 ```
 class Solution {
     public int solution(int[] A) {
@@ -55,4 +55,32 @@ class Solution {
 }
 ```
 
-# Acceptance: 11%
+## Acceptance: 11%
+
+# Solution 2
+```
+import java.util.*;
+
+class Solution {
+    public int solution(int[] arr) {
+        int smallestInt = 1;
+
+        if (arr.length == 0) return smallestInt;
+
+        Arrays.sort(arr);
+
+        if (arr[0] > 1) return smallestInt;
+        if (arr[arr.length - 1] <= 0) return smallestInt;
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == smallestInt) {
+                smallestInt++;
+            }
+        }
+
+        return smallestInt;
+    }
+}
+```
+
+## Acceptance: 100%
